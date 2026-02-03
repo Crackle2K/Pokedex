@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Ares</title>
-    <link>
+    <title>Dinesh's Pokédex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Pokédex</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search Pokémon...">
+        </div>
+        <div id="loading" class="loading">Loading Pokémon...</div>
+        <div id="pokemonGrid" class="pokemon-grid"></div>
+    </div>
+    
+    <!-- Modal for Pokemon Details -->
+    <div id="pokemonModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="pokemon-header">
+                <h2 id="pokemonName"></h2>
+                <span id="pokemonId" class="pokemon-id"></span>
+            </div>
+            <img id="pokemonImage" alt="Pokemon sprite">
+            <div class="pokemon-types" id="pokemonTypes"></div>
+            <div class="pokemon-stats">
+                <h3>Stats</h3>
+                <div id="statsList"></div>
+            </div>
+            <div class="pokemon-info">
+                <div class="info-item">
+                    <span class="label">Height:</span>
+                    <span id="pokemonHeight"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Weight:</span>
+                    <span id="pokemonWeight"></span>
+                </div>
+            </div>
+            <div class="pokemon-abilities">
+                <h3>Abilities</h3>
+                <div id="abilitiesList"></div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
