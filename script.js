@@ -47,7 +47,7 @@ function displayPokemonGrid(pokemonList) {
         card.onclick = () => showPokemonDetails(pokemon);
         
         const img = document.createElement('img');
-        img.src = pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default;
+        img.src = pokemon.sprites.front_default;
         img.alt = pokemon.name;
         
         const name = document.createElement('h3');
@@ -79,7 +79,7 @@ function showPokemonDetails(data) {
     // Set basic info
     pokemonName.textContent = data.name;
     pokemonId.textContent = `#${String(data.id).padStart(3, '0')}`;
-    pokemonImage.src = data.sprites.other['official-artwork'].front_default || data.sprites.front_default;
+    pokemonImage.src = data.sprites.front_default;
     pokemonImage.alt = data.name;
 
     // Display types
@@ -99,8 +99,9 @@ function showPokemonDetails(data) {
         
         const statName = document.createElement('div');
         statName.className = 'stat-name';
+        const displayName = statInfo.stat.name === 'hp' ? 'HP' : statInfo.stat.name.replace('-', ' ');
         statName.innerHTML = `
-            <span>${statInfo.stat.name.replace('-', ' ')}</span>
+            <span>${displayName}</span>
             <span>${statInfo.base_stat}</span>
         `;
         

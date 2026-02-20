@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff9a00 0%, #ffcc00 50%, #ff6600 100%);
+    background: #FFD29D;
     min-height: 100vh;
     padding: 20px;
 }
@@ -19,10 +19,9 @@ body {
 
 h1 {
     text-align: center;
-    color: #fff;
+    color: #A41623;
     font-size: 3rem;
     margin-bottom: 30px;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .search-box {
@@ -35,18 +34,18 @@ h1 {
     width: 100%;
     max-width: 500px;
     padding: 15px 20px;
-    border: 3px solid #ff6600;
-    border-radius: 25px;
+    border: 2px solid #918450;
+    border-radius: 8px;
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
     outline: none;
-    background: rgba(255, 255, 255, 0.95);
+    background: white;
     transition: all 0.3s;
 }
 
 #searchInput:focus {
-    background: white;
-    box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+    border-color: #A41623;
+    box-shadow: 0 0 0 3px rgba(164, 22, 35, 0.2);
 }
 
 /* Pokemon Grid */
@@ -58,20 +57,20 @@ h1 {
 }
 
 .pokemon-card-small {
-    background: linear-gradient(135deg, #ffe5b4 0%, #fff8dc 100%);
-    border-radius: 15px;
+    background: #FFB563;
+    border-radius: 8px;
     padding: 20px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s;
-    border: 3px solid #ff9a00;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #918450;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .pokemon-card-small:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border-color: #ff6600;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: #A41623;
 }
 
 .pokemon-card-small img {
@@ -81,17 +80,17 @@ h1 {
 }
 
 .pokemon-card-small h3 {
-    color: #ff6600;
+    color: #A41623;
     font-size: 1.2rem;
     margin-bottom: 5px;
     text-transform: capitalize;
 }
 
 .pokemon-card-small .pokemon-id {
-    background: #ff9a00;
+    background: #A41623;
     color: white;
     padding: 3px 10px;
-    border-radius: 15px;
+    border-radius: 4px;
     font-size: 0.8rem;
     font-weight: bold;
     display: inline-block;
@@ -130,16 +129,16 @@ h1 {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #ffe5b4 0%, #fff8dc 100%);
+    background: #FFB563;
     margin: 5% auto;
     padding: 30px;
-    border: 4px solid #ff9a00;
-    border-radius: 20px;
+    border: 3px solid #A41623;
+    border-radius: 8px;
     width: 90%;
     max-width: 600px;
     max-height: 85vh;
     overflow-y: auto;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.4s;
     position: relative;
 }
@@ -156,7 +155,7 @@ h1 {
 }
 
 .close {
-    color: #ff6600;
+    color: #A41623;
     position: absolute;
     top: 15px;
     right: 25px;
@@ -167,7 +166,7 @@ h1 {
 }
 
 .close:hover {
-    color: #ff4400;
+    color: #F85E00;
 }
 
 @keyframes slideIn {
@@ -189,16 +188,16 @@ h1 {
 }
 
 #pokemonName {
-    color: #ff6600;
+    color: #A41623;
     font-size: 2rem;
     text-transform: capitalize;
 }
 
 .pokemon-id {
-    background: #ff9a00;
+    background: #A41623;
     color: white;
     padding: 5px 15px;
-    border-radius: 20px;
+    border-radius: 4px;
     font-weight: bold;
 }
 
@@ -207,7 +206,6 @@ h1 {
     margin: 0 auto 20px;
     width: 200px;
     height: 200px;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
 }
 
 .pokemon-types {
@@ -225,6 +223,51 @@ h1 {
     text-transform: uppercase;
     font-size: 0.9rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: subtleFloat 3s ease-in-out infinite;
+}
+
+.type-badge::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s ease-in-out infinite;
+}
+
+.type-badge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    animation: none;
+}
+
+@keyframes shine {
+    0%, 100% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    50% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+@keyframes subtleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
 .pokemon-stats {
@@ -233,7 +276,7 @@ h1 {
 
 .pokemon-stats h3,
 .pokemon-abilities h3 {
-    color: #ff6600;
+    color: #A41623;
     margin-bottom: 15px;
     font-size: 1.3rem;
 }
@@ -247,21 +290,21 @@ h1 {
     justify-content: space-between;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #ff6600;
+    color: #A41623;
     text-transform: capitalize;
 }
 
 .stat-progress {
     height: 20px;
-    background: rgba(255, 102, 0, 0.2);
-    border-radius: 10px;
+    background: rgba(145, 132, 80, 0.3);
+    border-radius: 4px;
     overflow: hidden;
 }
 
 .stat-fill {
     height: 100%;
-    background: linear-gradient(90deg, #ff9a00, #ff6600);
-    border-radius: 10px;
+    background: #F85E00;
+    border-radius: 4px;
     transition: width 0.5s ease;
 }
 
@@ -270,8 +313,8 @@ h1 {
     justify-content: space-around;
     margin: 20px 0;
     padding: 15px;
-    background: rgba(255, 154, 0, 0.1);
-    border-radius: 15px;
+    background: rgba(255, 210, 157, 0.6);
+    border-radius: 8px;
 }
 
 .info-item {
@@ -280,7 +323,7 @@ h1 {
 
 .label {
     display: block;
-    color: #ff6600;
+    color: #A41623;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -303,21 +346,22 @@ h1 {
 
 .ability-badge {
     padding: 8px 15px;
-    background: #ffcc00;
+    background: rgba(145, 132, 80, 0.4);
     color: #333;
-    border-radius: 15px;
+    border-radius: 4px;
     font-weight: bold;
     text-transform: capitalize;
+    border: 1px solid #918450;
 }
 
 .error-message {
-    background: linear-gradient(135deg, #ff6b6b, #ff4444);
+    background: #A41623;
     color: white;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 8px;
     text-align: center;
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     animation: shake 0.5s;
 }
 
@@ -329,7 +373,7 @@ h1 {
 
 .loading {
     text-align: center;
-    color: white;
+    color: #A41623;
     font-size: 1.5rem;
     font-weight: bold;
     padding: 20px;
