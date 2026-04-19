@@ -51,12 +51,7 @@ function skinUrl(username) {
 
 function renderHome() {
   app.innerHTML = `
-    <section class="hero">
-      <h1>Welcome to the<br/><span class="accent">CrackleSMP Wiki</span></h1>
-      <p>Everything you need to know about the server — factions, builds, and the players behind them.</p>
-    </section>
-
-    <section class="home-grid">
+    <div class="home-grid">
       <div class="home-card" onclick="navigate('factions')">
         <h2>Factions</h2>
         <p>${DATA.factions.length} factions &mdash; alliances, territories, and rivalries.</p>
@@ -69,9 +64,9 @@ function renderHome() {
         <h2>Members</h2>
         <p>${DATA.members.length} players &mdash; roles, specialties, and stories.</p>
       </div>
-    </section>
+    </div>
 
-    <section class="home-factions-preview">
+    <div class="home-factions-preview">
       <h2 class="section-title">Factions at a Glance</h2>
       <div class="faction-strip">
         ${DATA.factions.map(f => `
@@ -81,7 +76,7 @@ function renderHome() {
           </div>
         `).join('')}
       </div>
-    </section>
+    </div>
   `;
 }
 

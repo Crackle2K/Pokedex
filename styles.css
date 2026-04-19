@@ -2,13 +2,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #0e150f;
-  --surface:   #162119;
-  --surface2:  #1c2b20;
-  --border:    #2a3f2e;
-  --text:      #ddeadd;
-  --text-muted:#7a9680;
-  --accent:    #8ab870;
+  --bg:        #161f14;
+  --surface:   #1e2d1b;
+  --surface2:  #263823;
+  --border:    #35502f;
+  --text:      #e2edd8;
+  --text-muted:#7fa070;
+  --accent:    #d6c43a;
+  --accent-dim:#d6c43a28;
+  --green:     #4a7a3d;
   --radius:    10px;
   --radius-lg: 16px;
 }
@@ -16,7 +18,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: 'DM Sans', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
@@ -29,8 +31,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(14,21,15,0.92);
-  backdrop-filter: blur(12px);
+  background: rgba(22,31,20,0.95);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -38,31 +40,21 @@ header {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  height: 56px;
+  height: 58px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .logo {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.logo-title {
-  font-size: 1.1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--accent);
-  letter-spacing: -0.3px;
-}
-
-.logo-sub {
-  font-size: 0.7rem;
-  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
 }
 
 /* ── Main ───────────────────────────────────────────────────────────────── */
@@ -74,39 +66,18 @@ main {
   width: 100%;
 }
 
-/* ── Hero ───────────────────────────────────────────────────────────────── */
-.hero {
-  text-align: center;
-  padding: 4rem 1rem 3rem;
-}
-
-.hero h1 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
-
-.accent { color: var(--accent); }
-
-.hero p {
-  color: var(--text-muted);
-  font-size: 1.05rem;
-  max-width: 540px;
-  margin: 0 auto;
-}
-
 /* ── Home Grid ──────────────────────────────────────────────────────────── */
 .home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .home-card {
   background: var(--surface);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
   cursor: pointer;
@@ -114,16 +85,24 @@ main {
 }
 
 .home-card:hover {
-  border-color: var(--accent);
   background: var(--surface2);
   transform: translateY(-2px);
 }
 
-.home-card h2 { font-size: 1.15rem; margin-bottom: 0.4rem; }
-.home-card p  { color: var(--text-muted); font-size: 0.875rem; }
+.home-card h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-card p { color: var(--text-muted); font-size: 0.875rem; line-height: 1.5; }
 
 /* ── Faction Strip ──────────────────────────────────────────────────────── */
-.home-factions-preview { margin-top: 1rem; }
+.home-factions-preview { margin-top: 0.5rem; }
 
 .faction-strip {
   display: flex;
@@ -143,20 +122,24 @@ main {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.3rem;
   transition: background 0.2s, transform 0.15s;
 }
 
 .faction-strip-item:hover { background: var(--surface2); transform: translateY(-2px); }
 
-.strip-name  { font-weight: 700; font-size: 1rem; }
+.strip-name  { font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.03em; }
 .strip-count { color: var(--text-muted); font-size: 0.8rem; }
 
 /* ── Section Title ──────────────────────────────────────────────────────── */
 .section-title {
-  font-size: 1.2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -169,16 +152,28 @@ main {
   background: var(--surface2);
   color: var(--text-muted);
   border-radius: 99px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
   padding: 1px 8px;
   border: 1px solid var(--border);
 }
 
 /* ── Page Header ────────────────────────────────────────────────────────── */
 .page-header { margin-bottom: 2rem; }
-.page-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.4rem; }
-.page-header p  { color: var(--text-muted); }
+
+.page-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+.page-header p { color: var(--text-muted); }
 
 /* ── Card Grid ──────────────────────────────────────────────────────────── */
 .card-grid {
@@ -190,11 +185,11 @@ main {
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent, var(--border));
+  border-top: 3px solid var(--accent);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.15s, background 0.2s;
+  transition: background 0.2s, transform 0.15s;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -202,8 +197,14 @@ main {
 
 .card:hover { background: var(--surface2); transform: translateY(-2px); }
 
-.card-title { font-size: 1.15rem; font-weight: 700; }
-.card-desc  { color: var(--text-muted); font-size: 0.875rem; line-height: 1.55; flex: 1; }
+.card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.card-desc   { color: var(--text-muted); font-size: 0.875rem; line-height: 1.55; flex: 1; }
 
 .card-meta {
   display: flex;
@@ -219,7 +220,7 @@ main {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 99px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   border: 1px solid;
 }
@@ -236,16 +237,16 @@ main {
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.8rem;
   padding: 0.3rem 0.9rem;
   border-radius: 99px;
   cursor: pointer;
   transition: all 0.15s;
-  font-family: inherit;
 }
 
 .filter-btn:hover  { color: var(--text); border-color: var(--accent); }
-.filter-btn.active { color: #0e150f; background: var(--accent); border-color: var(--accent); font-weight: 600; }
+.filter-btn.active { color: var(--bg); background: var(--accent); border-color: var(--accent); font-weight: 700; }
 
 /* ── POI Card ───────────────────────────────────────────────────────────── */
 .poi-card-top {
@@ -258,23 +259,23 @@ main {
   display: inline-block;
   background: var(--surface2);
   color: var(--text-muted);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
   padding: 2px 8px;
   border-radius: 4px;
   border: 1px solid var(--border);
 }
 
 .poi-status {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 4px;
 }
 
-.status-active   { color: #8ab870; background: #8ab87015; }
+.status-active   { color: #8fd16a; background: #8fd16a15; }
 .status-inactive { color: #c47c5a; background: #c47c5a15; }
 
 .coords-inline { font-size: 0.75rem; color: var(--text-muted); font-family: 'Consolas', monospace; }
@@ -289,7 +290,7 @@ main {
 .member-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent, var(--border));
+  border-top: 3px solid var(--accent);
   border-radius: var(--radius-lg);
   padding: 1.5rem 1rem;
   cursor: pointer;
@@ -309,11 +310,18 @@ main {
   image-rendering: pixelated;
   border-radius: 8px;
   margin-bottom: 0.25rem;
+  border: 2px solid var(--border);
 }
 
-.member-card-name     { font-size: 1.05rem; font-weight: 700; }
-.member-card-role     { color: var(--text-muted); font-size: 0.8rem; }
-.member-card-specialty{ color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem; }
+.member-card-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.member-card-role     { color: var(--text-muted); font-size: 0.78rem; }
+.member-card-specialty{ color: var(--text-muted); font-size: 0.78rem; margin-top: 0.2rem; }
 
 /* ── Detail Pages ───────────────────────────────────────────────────────── */
 .detail-back { margin-bottom: 1.5rem; }
@@ -322,20 +330,20 @@ main {
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.875rem;
   padding: 0.4rem 1rem;
   border-radius: var(--radius);
   cursor: pointer;
   transition: all 0.15s;
-  font-family: inherit;
 }
 
-.back-btn:hover { color: var(--text); border-color: var(--accent); }
+.back-btn:hover { color: var(--accent); border-color: var(--accent); }
 
 .detail-hero {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent, var(--border));
+  border-left: 4px solid var(--accent);
   border-radius: var(--radius-lg);
   padding: 2rem;
   display: flex;
@@ -344,8 +352,15 @@ main {
   margin-bottom: 2rem;
 }
 
-.detail-hero-text h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.6rem; }
-.detail-hero-text p  { color: var(--text-muted); line-height: 1.65; }
+.detail-hero-text h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.03em;
+}
+
+.detail-hero-text p { color: var(--text-muted); line-height: 1.65; }
 
 .poi-detail-tags { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
 
@@ -367,10 +382,17 @@ main {
   gap: 0.3rem;
 }
 
-.info-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); font-weight: 600; }
+.info-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 .info-value { font-size: 0.95rem; font-weight: 600; }
 
-.mono { font-family: 'Consolas', monospace; font-size: 0.85rem; }
+.mono { font-family: 'Consolas', monospace; font-size: 0.82rem; }
 
 .link-span { cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .link-span:hover { opacity: 0.8; }
@@ -402,11 +424,19 @@ main {
   image-rendering: pixelated;
   border-radius: 6px;
   flex-shrink: 0;
+  border: 1px solid var(--border);
 }
 
 .member-row-info { display: flex; flex-direction: column; gap: 2px; }
-.member-row-name { font-weight: 700; font-size: 0.95rem; }
-.member-row-role { color: var(--text-muted); font-size: 0.8rem; }
+
+.member-row-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+}
+
+.member-row-role { color: var(--text-muted); font-size: 0.78rem; }
 
 /* ── POI Row ────────────────────────────────────────────────────────────── */
 .poi-list { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -427,8 +457,8 @@ main {
 .poi-row:hover { background: var(--surface2); border-color: var(--accent); }
 
 .poi-row-left { display: flex; align-items: center; gap: 0.6rem; }
-.poi-row-name { font-weight: 600; font-size: 0.95rem; }
-.poi-coords   { color: var(--text-muted); font-size: 0.75rem; font-family: 'Consolas', monospace; white-space: nowrap; }
+.poi-row-name { font-weight: 600; font-size: 0.92rem; }
+.poi-coords   { color: var(--text-muted); font-size: 0.72rem; font-family: 'Consolas', monospace; white-space: nowrap; }
 
 /* ── Member Detail Hero ─────────────────────────────────────────────────── */
 .member-detail-hero { align-items: center; }
@@ -439,12 +469,13 @@ main {
   image-rendering: pixelated;
   border-radius: 12px;
   flex-shrink: 0;
+  border: 2px solid var(--border);
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .detail-hero { flex-direction: column; }
   .member-detail-hero { flex-direction: column; align-items: flex-start; }
-  .hero h1 { font-size: 1.8rem; }
   main { padding: 1.5rem 1rem; }
+  .page-header h1 { font-size: 1.6rem; }
 }
